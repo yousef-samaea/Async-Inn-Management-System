@@ -9,5 +9,8 @@ namespace AsyncInn.Models
     {
         public int AmenitiesID { get; set; }
         public int RoomID { get; set; }
+
+        public Amenity Amenities { get; set; }
+        public Room Room { get; set; }
     }
 }

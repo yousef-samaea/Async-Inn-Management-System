@@ -12,5 +12,8 @@ namespace AsyncInn.Models
         public int RoomID { get; set; }
         public decimal Rate { get; set; }
         public bool PetFriendly { get; set; }
+
+        public Hotel Hotel { get; set; }
+        public Room Room { get; set; }
     }
 }
