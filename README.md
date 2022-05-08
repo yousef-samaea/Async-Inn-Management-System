@@ -14,6 +14,15 @@ i have made three models Hotels, Rooms, and Amenities and every model have three
 api/Amenities
 api/Hotels
 api/Rooms
+........................................................................................................
+## LAB 13 Dependency Injection
+
+1. i Build three interface one for each of the Hotels, Rooms, and Amenities controllers  that contain the required method signatures to all for CRUD operations to the database in side the models folder,
+
+2. then i make a service for each of Hotels, Rooms, and Amenities controllers that have the interface actions like ubdate and delete ang crete and get
+
+3. then i Updated the Controller to use the appropriate method from the interface rather than the DBContext directly to make less woke for the Controller.
+
 
 
 
