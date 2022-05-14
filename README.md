@@ -24,5 +24,12 @@ api/Rooms
 3. then i Updated the Controller to use the appropriate method from the interface rather than the DBContext directly to make less woke for the Controller.
 
 
+## LAB 14 Navigation Properties & Routing
+
+i did Createed an interface and service for HotelRoom and add ability to add and remove amenities to a specific room, and i did add a navigation properties and Modify the routes some controller.
+........................................................................................................
+
+
+
 
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    [Migration("20220428190418_updaten")]
+    [Migration("20220514145742_updaten")]
     partial class updaten
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,6 +132,8 @@ namespace AsyncInn.Migrations
 
                     b.HasKey("HotelID", "RoomNumber");
 
+                    b.HasIndex("RoomID");
+
                     b.ToTable("HotelRooms");
                 });
 
@@ -183,7 +185,64 @@ namespace AsyncInn.Migrations
 
                     b.HasKey("AmenitiesID", "RoomID");
 
+                    b.HasIndex("RoomID");
+
                     b.ToTable("RoomAmenities");
+                });
+
+            modelBuilder.Entity("AsyncInn.Models.HotelRoom", b =>
+                {
+                    b.HasOne("AsyncInn.Models.Hotel", "Hotel")
+                        .WithMany("HotelRoom")
+                        .HasForeignKey("HotelID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AsyncInn.Models.Room", "Room")
+                        .WithMany("HotelRoom")
+                        .HasForeignKey("RoomID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hotel");
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("AsyncInn.Models.RoomAmenities", b =>
+                {
+                    b.HasOne("AsyncInn.Models.Amenity", "Amenities")
+                        .WithMany("RoomAmenities")
+                        .HasForeignKey("AmenitiesID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AsyncInn.Models.Room", "Room")
+                        .WithMany("RoomAmenities")
+                        .HasForeignKey("RoomID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Amenities");
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("AsyncInn.Models.Amenity", b =>
+                {
+                    b.Navigation("RoomAmenities");
+                });
+
+            modelBuilder.Entity("AsyncInn.Models.Hotel", b =>
+                {
+                    b.Navigation("HotelRoom");
+                });
+
+            modelBuilder.Entity("AsyncInn.Models.Room", b =>
+                {
+                    b.Navigation("HotelRoom");
+
+                    b.Navigation("RoomAmenities");
                 });
 #pragma warning restore 612, 618
         }

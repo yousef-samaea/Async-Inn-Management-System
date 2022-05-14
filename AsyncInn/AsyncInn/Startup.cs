@@ -26,12 +26,15 @@ namespace AsyncInn
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddMvc();
             services.AddControllers();
             services.AddTransient<IAmenity, AmenityServieces>();
             services.AddTransient<IHotel, HotelServices>();
             services.AddTransient<IRoom, RoomServieces>();
-            
+            services.AddTransient<IHotelRoom, HotelRoomServieces>();
+
+           // services.AddControllers().AddNewtonsoftJson(opt =>
+           //opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<AsyncInnDbContext>(options => {
                 // Our DATABASE_URL from js days
