@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
 using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.DTO;
 
 namespace AsyncInn.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class RoomsController : ControllerBase
@@ -24,31 +26,24 @@ namespace AsyncInn.Controllers
 
         // GET: api/Rooms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetRooms()
+        public async Task<ActionResult<IEnumerable<RoomDTO>>> GetRooms()
         {
-            return await _room.GetRooms();
+            return Ok(await _room.GetRooms());
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Room>> GetRoom(int id)
+        public async Task<ActionResult<RoomDTO>> GetRoom(int id)
         {
             var room = await _room.GetRoom(id);
-
             return Ok(room);
-
         }
 
         // PUT: api/Rooms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoom(int id, Room room)
+        public async Task<IActionResult> PutRoom(int id, RoomDTO room)
         {
-            if (id != room.ID)
-            {
-                return BadRequest();
-            }
-
             var updatedRoom = await _room.UpdateRoom(id, room);
             return Ok(updatedRoom);
         }
@@ -56,7 +51,7 @@ namespace AsyncInn.Controllers
         // POST: api/Rooms
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Room>> PostRoom(Room room)
+        public async Task<ActionResult<RoomDTO>> PostRoom(RoomDTO room)
         {
             await _room.Create(room);
             return CreatedAtAction("GetRoom", new { id = room.ID }, room);
@@ -67,6 +62,22 @@ namespace AsyncInn.Controllers
         public async Task<IActionResult> DeleteRoom(int id)
         {
             await _room.DeleteRoom(id);
+            return NoContent();
+        }
+        //Adds an amenity to a room
+        [HttpPost]
+        [Route("{roomId}/Amenity/{amenityId}")]
+        public async Task<IActionResult> AddAmenityToRoom(int roomId, int amenityId)
+        {
+            await _room.AddAmenityToRoom(roomId, amenityId);
+            return NoContent();
+        }
+        //removes an amenity from a room
+        [HttpDelete]
+        [Route("{roomId}/{amenityId}")]
+        public async Task<IActionResult> DeleteAmenityFromRoom(int roomId, int amenityId)
+        {
+            await _room.RemoveAmentityFromRoom(roomId, amenityId);
             return NoContent();
         }
     }

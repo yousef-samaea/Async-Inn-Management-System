@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    [Migration("20220514145742_updaten")]
+    [Migration("20220516162733_updaten")]
     partial class updaten
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

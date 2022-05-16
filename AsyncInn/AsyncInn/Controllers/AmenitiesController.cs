@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
 using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.DTO;
 
 namespace AsyncInn.Controllers
 {
@@ -24,29 +25,24 @@ namespace AsyncInn.Controllers
 
         // GET: api/Amenities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Amenity>>> GetAmenities()
+        public async Task<ActionResult<IEnumerable<AmenityDTO>>> GetAmenities()
         {
-            return await _amenity.GetAmenities();
+            return Ok(await _amenity.GetAmenities());
         }
 
         // GET: api/Amenities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Amenity>> GetAmenity(int id)
+        public async Task<ActionResult<AmenityDTO>> GetAmenity(int id)
         {
-            var amenity = await _amenity.GetAmenity(id);
-
+            AmenityDTO amenity = await _amenity.GetAmenity(id);
             return Ok(amenity);
         }
 
         // PUT: api/Amenities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAmenity(int id, Amenity amenity)
+        public async Task<IActionResult> PutAmenity(int id, AmenityDTO amenity)
         {
-            if (id != amenity.ID)
-            {
-                return BadRequest();
-            }
             var updatedAmenity = await _amenity.UpdateAmenity(id, amenity);
             return Ok(updatedAmenity);
         }
@@ -54,7 +50,7 @@ namespace AsyncInn.Controllers
         // POST: api/Amenities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Amenity>> PostAmenity(Amenity amenity)
+        public async Task<ActionResult<Amenity>> PostAmenity(AmenityDTO amenity)
         {
             await _amenity.Create(amenity);
             return CreatedAtAction("GetAmenity", new { id = amenity.ID }, amenity);

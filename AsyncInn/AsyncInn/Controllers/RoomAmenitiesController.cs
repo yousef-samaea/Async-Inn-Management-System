@@ -10,6 +10,7 @@ using AsyncInn.Models;
 
 namespace AsyncInn.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class RoomAmenitiesController : ControllerBase
@@ -33,12 +34,6 @@ namespace AsyncInn.Controllers
         public async Task<ActionResult<RoomAmenities>> GetRoomAmenities(int id)
         {
             var roomAmenities = await _context.RoomAmenities.FindAsync(id);
-
-            if (roomAmenities == null)
-            {
-                return NotFound();
-            }
-
             return roomAmenities;
         }
 
@@ -47,11 +42,6 @@ namespace AsyncInn.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRoomAmenities(int id, RoomAmenities roomAmenities)
         {
-            if (id != roomAmenities.AmenitiesID)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(roomAmenities).State = EntityState.Modified;
 
             try
@@ -103,11 +93,6 @@ namespace AsyncInn.Controllers
         public async Task<IActionResult> DeleteRoomAmenities(int id)
         {
             var roomAmenities = await _context.RoomAmenities.FindAsync(id);
-            if (roomAmenities == null)
-            {
-                return NotFound();
-            }
-
             _context.RoomAmenities.Remove(roomAmenities);
             await _context.SaveChangesAsync();
 
