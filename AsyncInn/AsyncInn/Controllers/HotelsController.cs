@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
 using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.DTO;
 
 namespace AsyncInn.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class HotelsController : ControllerBase
@@ -24,7 +26,7 @@ namespace AsyncInn.Controllers
 
         // GET: api/Hotels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotel>>> GetHotels()
+        public async Task<ActionResult<IEnumerable<HotelDTO>>> GetHotels()
         {
             var hotel = await _hotel.GetHotels();
             return Ok(hotel);
@@ -32,7 +34,7 @@ namespace AsyncInn.Controllers
 
         // GET: api/Hotels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotel>> GetHotel(int id)
+        public async Task<ActionResult<HotelDTO>> GetHotel(int id)
         {
             var hotel = await _hotel.GetHotel(id);
 
@@ -43,14 +45,8 @@ namespace AsyncInn.Controllers
         // PUT: api/Hotels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHotel(int id, Hotel hotel)
+        public async Task<IActionResult> PutHotel(int id, HotelDTO hotel)
         {
-            if (id != hotel.ID)
-            {
-                return BadRequest();
-            }
-
-
             var updatedHotel = await _hotel.UpdateHotel(id, hotel);
             return Ok(updatedHotel);
         }
@@ -58,7 +54,7 @@ namespace AsyncInn.Controllers
         // POST: api/Hotels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Hotel>> PostHotel(Hotel hotel)
+        public async Task<ActionResult<Hotel>> PostHotel(HotelDTO hotel)
         {
             await _hotel.Create(hotel);
             return CreatedAtAction("GetHotel", new { id = hotel.ID }, hotel);

@@ -29,6 +29,10 @@ api/Rooms
 i did Createed an interface and service for HotelRoom and add ability to add and remove amenities to a specific room, and i did add a navigation properties and Modify the routes some controller.
 ........................................................................................................
 
+## Lab: 16 - DTOs & Testing
+
+at this lab i did add 'DTO' for Amenities, Rooms, HotelRooms, and Hotels to control the return data and have more security and that by adding a DTO folder and change the servesis and Dbcontixt and the interfaces
+........................................................................................................
 
 
 
