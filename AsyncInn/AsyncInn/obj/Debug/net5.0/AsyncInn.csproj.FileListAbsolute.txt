@@ -131,3 +131,13 @@ C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bi
 C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\youse\Desktop\programs\Async-Inn-Management-System\AsyncInn\AsyncInn\obj\Debug\net5.0\AsyncInn.MvcApplicationPartsAssemblyInfo.cs
