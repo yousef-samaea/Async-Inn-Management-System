@@ -34,6 +34,49 @@ i did Createed an interface and service for HotelRoom and add ability to add and
 at this lab i did add 'DTO' for Amenities, Rooms, HotelRooms, and Hotels to control the return data and have more security and that by adding a DTO folder and change the servesis and Dbcontixt and the interfaces
 ........................................................................................................
 
+## Lab: Identity
+at this lab i added the Register and signin for the user and add the swagger.
+........................................................................................................
 
+## tests 
+
+i did aded six test using Mock 
+
+![image](/M/test.png)
+
+# API Routes
+
+## Register
+
+![image](./M/R.png)
+
+## Login
+
+![image](/M/L.png)
+
+
+## Users
+
+![image](/M/Users.png)
+
+## Hotels
+
+![image](/M/Hotels.png)
+
+## Rooms
+
+![image](/M/Rooms.png)
+
+## Amenities
+
+![image](/M/Amenities.png)
+
+## HotelRooms
+
+![image](/M/HotelRooms.png)
+
+## RoomAmenities
+
+![image](/M/RoomAmenities.png)
 
 
